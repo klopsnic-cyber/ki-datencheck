@@ -1,0 +1,75 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "KI-Datencheck",
+  "version": "0.1.0",
+  "identifier": "de.infralatis.kidatencheck",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "KI-Datencheck",
+        "width": 1280,
+        "height": 840,
+        "minWidth": 980,
+        "minHeight": 660,
+        "theme": "Light",
+        "backgroundColor": "#F4F8F7",
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
+        "center": true,
+        "dragDropEnabled": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' ipc: http://ipc.localhost; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app",
+      "dmg",
+      "nsis"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "createUpdaterArtifacts": true,
+    "publisher": "infralatis",
+    "category": "Utility",
+    "shortDescription": "Datenschutz-Prüfung vor der Eingabe in eine KI",
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "signingIdentity": "-"
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": [
+          "German"
+        ]
+      }
+    }
+  },
+  "mainBinaryName": "KI-Datencheck",
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEU2NjQ2MUJEREU5RTVGREIKUldUYlg1N2V2V0ZrNWpTT29Sc0tUcjB6alkwL0R3V28vdkFGM2NYTkZrcjFaK1d1VWZYOG5QOTUK",
+      "endpoints": [
+        "https://github.com/klopsnic-cyber/ki-datencheck/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}
