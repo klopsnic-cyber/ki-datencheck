@@ -1,6 +1,6 @@
 {
   "name": "ki-datencheck",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "private": true,
   "scripts": { "dev": "vite dev", "build": "vite build", "prepare": "svelte-kit sync || echo ''", "tauri": "tauri" },
